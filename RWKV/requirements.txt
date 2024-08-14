@@ -1,0 +1,4 @@
+numpy
+torch
+prompt_toolkit
+git+https://github.com/BlinkDL/ChatRWKV.git#subdirectory=rwkv_pip_package
