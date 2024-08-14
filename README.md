@@ -25,7 +25,7 @@ Doesn't look bad next to mistral and llama3.
 
 ### Running The Base Model Demo
 
-Go to [huggingface.co/BlinkDL/rwkv-5-world](https://huggingface.co/BlinkDL/rwkv-5-world/blob/main/RWKV-5-World-7B-v2-20240128-ctx4096.pth) and [download](https://huggingface.co/BlinkDL/rwkv-5-world/resolve/main/RWKV-5-World-7B-v2-20240128-ctx4096.pth) the model.
+Go to [huggingface.co/BlinkDL/rwkv-5-world](https://huggingface.co/BlinkDL/rwkv-5-world/blob/main/RWKV-5-World-1B5-v2-20231025-ctx4096.pth) and [download](https://huggingface.co/BlinkDL/rwkv-5-world/resolve/main/RWKV-5-World-1B5-v2-20231025-ctx4096.pth) the model.
 
 ```bash
 cd RWKV
