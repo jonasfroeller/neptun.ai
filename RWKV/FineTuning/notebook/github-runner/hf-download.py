@@ -1,0 +1,73 @@
+#
+#  WARNING - THIS FEATURE HAS BEEN DROPPED FROM THE PROJECT
+#            THIS FILE IS NOT IN USE
+#
+
+import os
+import sys
+# from huggingface_hub import HfApi
+from huggingface_hub import snapshot_download
+
+# # Get the Hugging Face Hub API
+# api = HfApi()
+
+# Get the NOTEBOOK_FILE from the script first arg
+NOTEBOOK_FILE = sys.argv[1]
+
+# Compute the notebook subdir from the notebook parent
+NOTEBOOK_SUBDIR = os.path.dirname(NOTEBOOK_FILE)
+
+# Get the repo ID from the HF_REPO_SYNC env var
+REPO_URI = os.getenv("HF_REPO_SYNC", "rwkv-x-dev/rwkv-x-playground")
+
+RUNNER_SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+NOTEBOOK_DIR = os.path.dirname(RUNNER_SCRIPT_DIR)
+PROJ_DIR = os.path.dirname(NOTEBOOK_DIR)
+MODEL_DIR = os.path.join(PROJ_DIR, "model")
+OUTPUT_DIR = os.path.join(PROJ_DIR, "output")
+
+# Temporary HF download directory within the project (due to API limitation)
+HF_DOWNLOAD_DIR = os.path.join(PROJ_DIR, ".hf-download")
+os.makedirs(HF_DOWNLOAD_DIR, exist_ok=True)
+
+# The HF cache directory for models
+HF_HOME=os.getenv("HF_HOME", "")
+if HF_HOME == "":
+    raise Exception("HF_HOME is not set")
+# Setup the model cache
+HF_MODEL_CACHE = os.path.join(HF_HOME, f"model_cache")
+os.makedirs(HF_MODEL_CACHE, exist_ok=True)
+
+# Generate the URL where all the items will be uploaded
+hf_url = f"https://huggingface.co/{REPO_URI}/tree/main/{NOTEBOOK_SUBDIR}"
+
+# Check if the URL is a 404 (meaning no files exists)
+# If it doesn't exists - skip the download process
+import requests
+r = requests.get(hf_url)
+if r.status_code == 404:
+    print(f"# ------------------------------------")
+    print(f"# [Finished] No files to download from: {hf_url}")
+    print(f"# ------------------------------------")
+    exit(0)
+
+# Start the downloading process
+print(f"# ------------------------------------")
+print(f"# Downloading from: {hf_url}")
+print(f"# To: {HF_DOWNLOAD_DIR}")
+print(f"# ------------------------------------")
+
+# Download the existing models
+# due to the limtation of the API, we cannot download from a specific folder
+# and instead use the allow_patterns to filter the files
+snapshot_download(
+    repo_id=REPO_URI,
+    local_dir=HF_DOWNLOAD_DIR,
+    local_dir_use_symlinks=False,
+    allow_patterns=[f"{NOTEBOOK_SUBDIR}/*.pth"],
+    cache_dir=HF_MODEL_CACHE
+)
+
+print(f"# ------------------------------------")
+print(f"# Downloaded to: {HF_DOWNLOAD_DIR}")
+print(f"# ------------------------------------")
