@@ -11,7 +11,9 @@
    **Models:**
 
    - 0.1B = --n_layer 12 --n_embd 768
-   - 0.4B = --n_layer 24 --n_embd 1024
+   - **0.4B = --n_layer 24 --n_embd 1024**
    - 1.5B = --n_layer 24 --n_embd 2048
    - 3B = --n_layer 32 --n_embd 2560
    - 7B = --n_layer 32 --n_embd 4096
+
+Example: `python3 make_data.py demo.jsonl 24 1024`
