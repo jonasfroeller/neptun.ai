@@ -8,16 +8,11 @@ Based on [RWKV-LM](https://github.com/BlinkDL/RWKV-LM/tree/main?tab=readme-ov-fi
 
 
 ### Tokenize data
+1. Install python-poetry 
 
-1. Open: `/data`
+2. RUN `bash ./run/process.sh`
 
-2. RUN: `poetry shell`
-
-3. NAVIGATE INTO `./run/`
-
-4. RUN `bash process.sh`
-
-5. CHECK: `/data/processed`
+3. CHECK: `/data/processed`
 
 
 ### OLD

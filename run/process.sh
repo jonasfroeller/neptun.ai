@@ -3,8 +3,10 @@
 RWKV_PATH="$(pwd)/RWKV"
 PYTHON_SCRIPTS_PATH="$(pwd)/python-scripts"
 
-cd "$RWKV_PATH"
-pip install -r requirements.txt
-
 cd "$PYTHON_SCRIPTS_PATH"
-python process_data.py
+
+# Use poetry run to execute the commands within the poetry environment
+poetry run pip install -r "$RWKV_PATH/requirements.txt"
+
+# Run the Python script with poetry
+poetry run python process_data.py
