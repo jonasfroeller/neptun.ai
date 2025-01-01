@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.12"
 torch = "^2.5.1"
 numpy = "^2.2.1"
+pytorch-lightning = "^2.5.0.post0"
+deepspeed = "^0.16.2"
 
 
 [build-system]

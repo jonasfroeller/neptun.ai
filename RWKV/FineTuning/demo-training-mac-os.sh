@@ -27,11 +27,11 @@ PROJ_DIR="out/L"$N_LAYER"-D"$N_EMBD"-"$MODEL_TYPE # set output folder
 # Larger model => use smaller LR
 # Finetuning => use very small LR, such as 1e-5
 #
-M_BSZ="16" # takes ~9G VRAM here => reduce this to save VRAM, increase this for faster speed
+M_BSZ="8" # Smaller batch size to optimize VRAM usage
 LR_INIT="6e-4"
 LR_FINAL="6e-5"
 GRAD_CP=1 # 1 => slower, save VRAM; 0 => faster, more VRAM
-EPOCH_SAVE=10 # save every 10 "miniepochs" (1 miniepoch = 40320 * ctx_len tokens) => decrease if your GPU is weak
+EPOCH_SAVE=10 # save every 10 "miniepochs" (1 miniepoch = 40320 * ctx_len tokens)
 #
 #######################################################################################################################
 #
@@ -41,7 +41,7 @@ EPOCH_SAVE=10 # save every 10 "miniepochs" (1 miniepoch = 40320 * ctx_len tokens
 N_NODE=1 # number of nodes
 GPU_PER_NODE=1 # number of GPUs per node
 #
-DS_BUCKET_MB=2 # set to 2 for consumer GPUs, set to 200 for A100 / H100 (affects speed & vram usage)
+DS_BUCKET_MB=2 # 2 for M2 Mac GPU
 #
 python train.py --load_model "RWKV-5-World-0.4B-v2-20231113-ctx4096.pth" --wandb "" --proj_dir $PROJ_DIR --my_testing $MODEL_TYPE \
  --ctx_len $CTX_LEN --my_pile_stage 3 --epoch_count 999999 --epoch_begin 0 \

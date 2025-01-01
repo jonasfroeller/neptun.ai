@@ -1,7 +1,7 @@
 ########################################################################################################
 # The RWKV Language Model - https://github.com/BlinkDL/RWKV-LM
 ########################################################################################################
-
+import setuptools.dist
 import logging
 logging.basicConfig(level=logging.INFO)
 
