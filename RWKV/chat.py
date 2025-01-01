@@ -25,7 +25,7 @@ args = types.SimpleNamespace()
 args.strategy = "cpu fp32"
 # args.strategy = "cuda fp16"  # use CUDA, fp16
 
-args.MODEL_NAME = "D:\\AI\\RWKV-5-World-1B5-v2-20231025-ctx4096" # "D:\\AI\\RWKV-5-World-7B-v2-20240128-ctx4096"
+args.MODEL_NAME = "RWKV/FineTuning/RWKV-5-World-0.4B-v2-20231113-ctx4096.pth" # "D:\\AI\\RWKV-5-World-7B-v2-20240128-ctx4096"
 
 ########################################################################################################
 STATE_NAME = None # use vanilla zero initial state?
