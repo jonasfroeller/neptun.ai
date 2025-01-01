@@ -31,7 +31,7 @@ where the data is repeated 3 times (each time with different shuffle)
 ########################################################################################################
 
 from tokenizer.rwkv_tokenizer import TRIE_TOKENIZER
-tokenizer = TRIE_TOKENIZER("tokenizer/rwkv_vocab_v20230424.txt")
+tokenizer = TRIE_TOKENIZER("../RWKV/FineTuning/tokenizer/rwkv_vocab_v20230424.txt")
 from src.binidx import MMapIndexedDataset
 def index_file_path(prefix_path):
     return prefix_path + ".idx"
@@ -84,7 +84,7 @@ def is_prime(n):
 
 N_EPOCH = int(sys.argv[2].strip())
 IN_FILE = sys.argv[1].strip()
-OUT_NAME = os.path.splitext(os.path.basename(IN_FILE))[0]
+OUT_NAME = "../data/processed/" + os.path.splitext(os.path.basename(IN_FILE))[0]
 CTX_LEN = int(sys.argv[3].strip())
 TEMP_FILE = "make_data_temp.jsonl"
 
