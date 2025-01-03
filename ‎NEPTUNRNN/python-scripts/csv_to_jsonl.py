@@ -13,11 +13,12 @@ def convert_csv_to_jsonl(csv_path, output_path):
     with open(output_path, 'w', encoding='utf-8') as f:
         for chunk in chunks:
             for _, row in chunk.iterrows():
-                json_obj = {
-                    "text": f"System: You are a helpful expert.\n\n"
-                           f"User: {row['prompt']}\n\n"
-                           f"Assistant: {row['response']}"
-                }
+                formatted_text = (
+                    f"System: You are a helpful Docker expert.\n\n"
+                    f"User: {row['prompt']}\n\n"
+                    f"Assistant: {row['response']}"
+                )
+                json_obj = {"text": formatted_text}
                 f.write(json.dumps(json_obj, ensure_ascii=False) + '\n')
 
 def process_directory():
