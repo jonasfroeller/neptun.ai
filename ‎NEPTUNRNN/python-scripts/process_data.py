@@ -1,11 +1,12 @@
 import os
 import subprocess
 
-BASE_DIR = "../data"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, "../datasets"))
 PROCESSED_DIR = os.path.join(BASE_DIR, "processed")
-MAKE_DATA_SCRIPT = "../RWKV/FineTuning/make_data.py"  # Path of the RWKV-make_data.py script
-CTX_LEN = 4096  # Customize
-EPOCHS = 3  # Customize
+MAKE_DATA_SCRIPT = os.path.abspath(os.path.join(SCRIPT_DIR, "../../RWKV/FineTuning/make_data.py"))
+CTX_LEN = 4096
+EPOCHS = 3
 
 def find_jsonl_files(base_dir):
     """Recursively find all .jsonl files in the given directory."""
