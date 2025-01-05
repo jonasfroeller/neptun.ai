@@ -3,19 +3,28 @@
 NeptunAI on [huggingface.co](https://huggingface.co/neptun-org).  
 Based on [RWKV-LM](https://github.com/BlinkDL/RWKV-LM/tree/main?tab=readme-ov-file).
 
-
 ## Fine Tuning
 
-
 ### Tokenize data
-1. Install python-poetry 
 
-2. RUN `bash ./run/process.sh`
+0. Install [pipx](https://pipx.pypa.io/stable/installation)
+
+1. Install python-poetry
+
+```bash
+pipx install poetry
+```
+
+2. RUN
+
+```bash
+bash ./run/process.sh
+```
 
 3. CHECK: `/data/processed`
 
-
-### OLD
+<details>
+<summary>Legacy Instructions</summary>
 
 1. Use `.jsonl` format for your data (see [rwkv-5-world](https://huggingface.co/BlinkDL/rwkv-5-world) for formats).
 
@@ -32,13 +41,15 @@ Based on [RWKV-LM](https://github.com/BlinkDL/RWKV-LM/tree/main?tab=readme-ov-fi
    - 7B = --n_layer 32 --n_embd 4096 --vocab_size 65536 --lr_init 1e-5 --lr_final 1e-5
 
 _Example_: `python3 make_data.py demo.jsonl 24 1024`
+</details>
 
+### About The Data
 
-# About The Data
 This repository is collection of scraped CSV & jsonl data from various sources used to train the neptun-ai. Below you can find a brief desciption of the used workflow, data-format & used tools.
 
 
-# Workflow
+#### Workflow
+
 * Scrape Docker Documentation:
     - Extract tutorial content, including titles, headings, and detailed instructions.
     - Preserve the structure of the documentation (section headers and code snippets).
@@ -49,31 +60,34 @@ This repository is collection of scraped CSV & jsonl data from various sources u
 * Train RWKV:
     -  Use the structured dataset to fine-tune the RWKV model for answering Docker questions.
 
-# Tools used for scraping and downloading
+#### Tools used for scraping and downloading
+
 * CHATGPT GPT's
- - Scraper-GPT
- - Data Analyst-GPT
+  * Scraper-GPT
+  * Data Analyst-GPT
 
+#### Conversation Description of `demo.jsonl`
 
-# Conversation Description of `demo.jsonl`
+#### What the User Wanted
 
-## What the User Wanted
 * **Purpose**: The user tested how well the AI could edit, explain, and analyze text.
 * **Tasks**: The user asked for things like fixing sentences, summarizing articles, solving technical problems, and understanding tricky meanings.
 
-## What the AI Did
+#### What the AI Did
+
 * **Clear Answers**: The AI followed instructions and gave step-by-step responses.
 * **Helpful Edits**: It fixed grammar, added spaces, and improved sentences with clear explanations.
 * **Understood Context**: It figured out tricky phrases and cultural meanings correctly.
 * **Solved Problems**: It used facts and logic to answer technical or scientific questions.
 
-## Takeaways
+#### Takeaways
+
 * The AI can follow detailed instructions well.
 * It explains changes clearly and in simple terms.
 * It adapts to different kinds of tasks and questions.
 
-# Data Description of `/data`
+#### Data Description of `/data`
 
-## `get-started`
+##### `get-started`
 
 Uses the scrapped data from [Link](https://docs.docker.com/get-started/) and provides a data.jsonl for every page which is tagged in the navigation sidebar.

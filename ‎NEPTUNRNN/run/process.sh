@@ -1,7 +1,7 @@
 #!/bin/bash
 
 RWKV_PATH="$(pwd)/../../RWKV"
-PYTHON_SCRIPTS_PATH="$(pwd)/../python-scripts"
+PYTHON_SCRIPTS_PATH="$(pwd)/../scripts"
 
 cd "$PYTHON_SCRIPTS_PATH"
 
