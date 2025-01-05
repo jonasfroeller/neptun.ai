@@ -1,5 +1,21 @@
 import json, math, random, sys, time, shutil, os, string, re, fileinput
 import numpy as np
+from pathlib import Path
+
+# Get the script directory and construct absolute paths
+SCRIPT_DIR = Path(__file__).parent.absolute()
+TOKENIZER_PATH = SCRIPT_DIR / "tokenizer" / "rwkv_vocab_v20230424.txt"
+PROCESSED_DIR = Path(SCRIPT_DIR).parent.parent / "NEPTUN" / "datasets" / "processed"
+
+# Verify paths and create directories if needed
+print(f"### Using tokenizer at: {TOKENIZER_PATH}")
+if not TOKENIZER_PATH.exists():
+    raise FileNotFoundError(f"Tokenizer file not found at: {TOKENIZER_PATH}")
+
+print(f"### Output directory: {PROCESSED_DIR}")
+if not PROCESSED_DIR.exists():
+    print(f"### Creating output directory: {PROCESSED_DIR}")
+    PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
 
 """
 How to use:
@@ -31,7 +47,7 @@ where the data is repeated 3 times (each time with different shuffle)
 ########################################################################################################
 
 from tokenizer.rwkv_tokenizer import TRIE_TOKENIZER
-tokenizer = TRIE_TOKENIZER("../RWKV/FineTuning/tokenizer/rwkv_vocab_v20230424.txt")
+tokenizer = TRIE_TOKENIZER(str(TOKENIZER_PATH))
 from src.binidx import MMapIndexedDataset
 def index_file_path(prefix_path):
     return prefix_path + ".idx"
@@ -84,7 +100,7 @@ def is_prime(n):
 
 N_EPOCH = int(sys.argv[2].strip())
 IN_FILE = sys.argv[1].strip()
-OUT_NAME = "../data/processed/" + os.path.splitext(os.path.basename(IN_FILE))[0]
+OUT_NAME = str(PROCESSED_DIR / os.path.splitext(os.path.basename(IN_FILE))[0])
 CTX_LEN = int(sys.argv[3].strip())
 TEMP_FILE = "make_data_temp.jsonl"
 
@@ -156,4 +172,8 @@ if data_size >= CTX_LEN * 3:
             if is_prime(i):
                 print(f"\n### magic_prime = {i} (for ctxlen {CTX_LEN})")
                 print(f'\n--my_exit_tokens {data_size} --magic_prime {i} --ctx_len {CTX_LEN}\n')
-                exit(0)
+
+# Delete temporary file as the very last step
+if os.path.exists(TEMP_FILE):
+    os.remove(TEMP_FILE)
+    print(f"### Temporary file {TEMP_FILE} has been deleted.")

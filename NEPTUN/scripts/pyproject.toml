@@ -6,7 +6,7 @@ authors = ["stevan06v <stevanvlajic5@gmail.com>", "jonasfroeller <j.froe@gmx.at>
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = ">=3.11.2"
 torch = "^2.5.1"
 numpy = "^2.2.1"
 pytorch-lightning = "^2.5.0.post0"
