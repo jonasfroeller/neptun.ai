@@ -1,0 +1,47 @@
+name: Process Training Data
+
+on:
+  push:
+    paths:
+      - 'NEPTUN/datasets/training-data.jsonl'
+
+jobs:
+  process-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.2'
+          
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          
+      - name: Install dependencies
+        working-directory: NEPTUN/scripts
+        run: poetry install
+          
+      - name: Process training data
+        working-directory: NEPTUN/run
+        run: |
+          chmod +x process.sh
+          ./process.sh
+          
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            NEPTUN/datasets/processed/training-data.bin
+            NEPTUN/datasets/processed/training-data.idx
+          tag_name: training-data-${{ github.sha }}
+          name: Training Data ${{ github.sha }}
+          body: |
+            Automatically processed training data
+            Commit: ${{ github.sha }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
