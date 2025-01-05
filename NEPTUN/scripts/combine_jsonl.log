@@ -15,3 +15,20 @@ Summary:
 2025-01-05 03:54:23,654 - INFO - Total lines: 31139
 2025-01-05 03:54:23,654 - INFO - Problem lines: 0
 2025-01-05 03:54:23,654 - INFO - Combined file saved to: ..\datasets\training-data.jsonl
+2025-01-05 15:39:48,651 - INFO - Created backup: ..\datasets\training-data.jsonl.bak
+2025-01-05 15:39:48,664 - INFO - Processed: ..\datasets\jsonl\DockerPS.jsonl
+2025-01-05 15:39:48,673 - INFO - Processed: ..\datasets\jsonl\NLDockercommands.jsonl
+2025-01-05 15:39:49,022 - INFO - Processed: ..\datasets\jsonl\Titanium_p1.jsonl
+2025-01-05 15:39:49,279 - INFO - Processed: ..\datasets\jsonl\Titanium_p2.jsonl
+2025-01-05 15:39:49,280 - INFO - Processed: ..\datasets\jsonl\get-started\what-is-docker-data.jsonl
+2025-01-05 15:39:49,281 - INFO - Processed: ..\datasets\jsonl\get-started\introduction\build-and-push-your-first-image-data.jsonl
+2025-01-05 15:39:49,281 - INFO - Processed: ..\datasets\jsonl\get-started\introduction\develope-with-containers-data.jsonl
+2025-01-05 15:39:49,282 - INFO - Processed: ..\datasets\jsonl\get-started\introduction\get-docker-desktop-data.jsonl
+2025-01-05 15:39:49,283 - INFO - Processed: ..\datasets\jsonl\get-started\docker-concepts\the-basics\what-is-a-container-data.jsonl
+2025-01-05 15:39:49,284 - INFO - Processed: ..\datasets\jsonl\get-started\docker-concepts\the-basics\what-is-docker-compose-data.jsonl
+2025-01-05 15:39:49,284 - INFO - 
+Summary:
+2025-01-05 15:39:49,284 - INFO - Processed files: 10
+2025-01-05 15:39:49,285 - INFO - Total lines: 31153
+2025-01-05 15:39:49,285 - INFO - Problem lines: 0
+2025-01-05 15:39:49,285 - INFO - Combined file saved to: ..\datasets\training-data.jsonl
