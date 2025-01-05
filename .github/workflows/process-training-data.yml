@@ -1,9 +1,12 @@
 name: Process Training Data
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'NEPTUN/datasets/training-data.jsonl'
+    branches:
+      - main
 
 jobs:
   process-and-release:
