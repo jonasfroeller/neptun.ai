@@ -45,6 +45,8 @@ jobs:
           files: |
             NEPTUN/datasets/processed/training-data.bin
             NEPTUN/datasets/processed/training-data.idx
+            NEPTUN/datasets/training-data.jsonl
+            RWKV/FineTuning/tokenizer/rwkv_vocab_v20230424.txt
           tag_name: training-data-${{ github.sha }}
           name: Training Data ${{ github.sha }}
           body: |
