@@ -1,4 +1,4 @@
-# Neptun AI
+# NeptunAI RNN
 
 NeptunAI on [huggingface.co](https://huggingface.co/neptun-org).  
 Based on [RWKV-LM](https://github.com/BlinkDL/RWKV-LM/tree/main?tab=readme-ov-file).
@@ -21,7 +21,7 @@ pipx install poetry
 bash ./run/process.sh
 ```
 
-3. CHECK: `/data/processed`
+3. CHECK: `./NEPTUN/datasets/processed`
 
 <details>
 <summary>Legacy Instructions</summary>
