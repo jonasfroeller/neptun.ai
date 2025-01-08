@@ -22,7 +22,7 @@ def convert_csv_to_jsonl(csv_path, output_path):
                 f.write(json.dumps(json_obj, ensure_ascii=False) + '\n')
 
 def process_directory():
-    csv_dir = Path("../datasets/csv")
+    csv_dir = Path("../datasets/raw/csv")
     jsonl_dir = Path("../datasets/jsonl")
     
     for csv_file in csv_dir.glob("*.csv"):

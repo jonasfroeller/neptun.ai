@@ -18,7 +18,7 @@ def convert_json_to_jsonl(json_path, output_path):
             f.write(json.dumps(json_obj, ensure_ascii=False) + '\n')
 
 def process_directory():
-    json_dir = Path("../datasets/json")
+    json_dir = Path("../datasets/raw/json")
     jsonl_dir = Path("../datasets/jsonl")
     
     for json_file in json_dir.glob("*.json"):
