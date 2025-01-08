@@ -32,3 +32,28 @@ Summary:
 2025-01-05 15:39:49,285 - INFO - Total lines: 31153
 2025-01-05 15:39:49,285 - INFO - Problem lines: 0
 2025-01-05 15:39:49,285 - INFO - Combined file saved to: ..\datasets\training-data.jsonl
+2025-01-08 21:21:35,517 - INFO - Created backup: ..\datasets\training-data.jsonl.bak
+2025-01-08 21:21:35,532 - INFO - Processed: ..\datasets\jsonl\docker_commands.jsonl
+2025-01-08 21:21:35,831 - INFO - Processed: ..\datasets\jsonl\docker_documentation.jsonl
+2025-01-08 21:21:35,837 - INFO - Processed: ..\datasets\jsonl\docker_process_status.jsonl
+2025-01-08 21:21:36,135 - INFO - Processed: ..\datasets\jsonl\titanium_01.jsonl
+2025-01-08 21:21:36,331 - INFO - Processed: ..\datasets\jsonl\titanium_02.jsonl
+2025-01-08 21:21:36,332 - INFO - 
+Summary:
+2025-01-08 21:21:36,332 - INFO - Processed files: 5
+2025-01-08 21:21:36,333 - INFO - Total lines: 34450
+2025-01-08 21:21:36,333 - INFO - Problem lines: 0
+2025-01-08 21:21:36,333 - INFO - Combined file saved to: ..\datasets\training-data.jsonl
+2025-01-08 21:24:35,458 - INFO - Created backup: ..\datasets\training-data.jsonl.bak
+2025-01-08 21:24:35,475 - INFO - Processed: ..\datasets\jsonl\docker_commands.jsonl
+2025-01-08 21:24:35,755 - INFO - Processed: ..\datasets\jsonl\docker_documentation.jsonl
+2025-01-08 21:24:35,761 - INFO - Processed: ..\datasets\jsonl\docker_process_status.jsonl
+2025-01-08 21:24:35,766 - INFO - Processed: ..\datasets\jsonl\npm_documentation.jsonl
+2025-01-08 21:24:36,042 - INFO - Processed: ..\datasets\jsonl\titanium_01.jsonl
+2025-01-08 21:24:36,221 - INFO - Processed: ..\datasets\jsonl\titanium_02.jsonl
+2025-01-08 21:24:36,221 - INFO - 
+Summary:
+2025-01-08 21:24:36,222 - INFO - Processed files: 6
+2025-01-08 21:24:36,222 - INFO - Total lines: 35311
+2025-01-08 21:24:36,222 - INFO - Problem lines: 0
+2025-01-08 21:24:36,222 - INFO - Combined file saved to: ..\datasets\training-data.jsonl
