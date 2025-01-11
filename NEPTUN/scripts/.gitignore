@@ -1,2 +1,4 @@
 # created by virtualenv automatically
 .venv
+
+parquet_to_jsonl.log
