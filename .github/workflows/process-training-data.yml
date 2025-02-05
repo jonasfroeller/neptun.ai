@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "NEPTUN/datasets/training-data.jsonl"
+      - "NEPTUN/datasets/jsonl"
     branches:
       - main
 
@@ -31,6 +31,12 @@ jobs:
       - name: Install dependencies
         working-directory: NEPTUN/scripts
         run: poetry install
+
+      - name: Combine JSONL files
+        working-directory: NEPTUN/run
+        run: |
+          chmod +x combine-training-data-jsonl.sh
+          ./combine-training-data-jsonl.sh
 
       - name: Process training data
         working-directory: NEPTUN/run
