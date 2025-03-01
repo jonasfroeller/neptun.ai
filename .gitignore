@@ -2,9 +2,9 @@ RWKV/FineTuning/RWKV-5-World-0.4B-v2-20231113-ctx4096.pth
 NEPTUN/datasets/processed/*
 NEPTUN/scripts/make_data_temp.jsonl
 .dist
-/src/__pycache__
-venv/
-ollama/
+NEPTUN/webui/src/__pycache__
+NEPTUN/webui/src/venv/
+NEPTUN/webui/src/ollama/
 *.gguf
 *.ggml
 .idea/
